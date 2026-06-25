@@ -1,0 +1,9 @@
+.DS_Store
+__pycache__/
+*.pyc
+pdfs/
+images/
+raw/
+.claude/
+publishing/gdrive_credentials.json
+publishing/gdrive_token.json

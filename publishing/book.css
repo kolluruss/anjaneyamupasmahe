@@ -1,0 +1,157 @@
+/* ══════════════════════════════════════════════════════════════════
+   book.css  —  ఆంజనేయముపాస్మహే full-book PDF layout
+   Used by: publishing/make_book.py
+   Font paths are relative to this file (publishing/ directory).
+   ══════════════════════════════════════════════════════════════════ */
+
+
+/* ── Font declarations ─────────────────────────────────────────── */
+
+@font-face {
+  font-family: 'Ponnala';
+  src: url('fonts_cache/Ponnala.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gidugu';
+  src: url('fonts_cache/Gidugu.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+/* ── Page setup ────────────────────────────────────────────────── */
+
+@page {
+  size: 5.5in 8.5in;
+  margin: 0.75in 0.85in 1.0in 0.85in;
+
+  @bottom-left {
+    content: "ఆంజనేయముపాస్మహే";
+    font-family: 'Gidugu', sans-serif;
+    font-size: 8pt;
+    color: #888;
+    border-top: 0.5pt solid #ccc;
+    padding-top: 4pt;
+  }
+  @bottom-right {
+    content: counter(page);
+    font-family: 'Gidugu', sans-serif;
+    font-size: 8pt;
+    color: #888;
+    border-top: 0.5pt solid #ccc;
+    padding-top: 4pt;
+  }
+}
+
+
+/* ── Base ──────────────────────────────────────────────────────── */
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Gidugu', sans-serif;
+  font-size: 10pt;
+  line-height: 1.7;
+  color: #111;
+}
+
+
+/* ── Chapter page breaks ───────────────────────────────────────── */
+
+/* Each chapter starts on a new page; first chapter avoids a leading blank page. */
+.chapter       { page-break-before: always; }
+.first-chapter { page-break-before: avoid;  }
+
+
+/* ── Chapter title (## heading) ────────────────────────────────── */
+
+.chapter h2 {
+  font-family: 'Ponnala', sans-serif;
+  font-size: 16pt;
+  text-align: center;
+  color: #1a237e;
+  margin-bottom: 0.25in;
+  margin-top: 0.1in;
+  page-break-after: avoid;
+}
+
+
+/* ── Section headings (### and ####) ───────────────────────────── */
+
+.chapter h3 {
+  font-family: 'Ponnala', sans-serif;
+  font-size: 12pt;
+  color: #4a148c;
+  margin-top: 0.2in;
+  margin-bottom: 0.08in;
+  page-break-after: avoid;
+}
+
+.chapter h4 {
+  font-family: 'Ponnala', sans-serif;
+  font-size: 10pt;
+  color: #333;
+  margin-top: 0.15in;
+  margin-bottom: 0.06in;
+  page-break-after: avoid;
+}
+
+
+/* ── Illustration ──────────────────────────────────────────────── */
+
+.chapter img {
+  display: block;
+  margin: 0.15in auto 0.2in;
+  max-width: 3.0in;
+  max-height: 2.8in;
+  border: 1.5pt solid #ccc;
+  padding: 5pt;
+}
+
+
+/* ── Prose paragraphs ──────────────────────────────────────────── */
+
+.chapter p {
+  font-family: 'Gidugu', sans-serif;
+  font-size: 10pt;
+  line-height: 1.7;
+  text-align: justify;
+  margin-bottom: 0.1in;
+}
+
+
+/* ── Bold text (Sanskrit shlokas / key passages) ────────────────── */
+
+.chapter p strong,
+.chapter li strong {
+  font-family: 'Gidugu', sans-serif;
+  font-size: 10pt;
+  font-weight: bold;
+}
+
+
+/* ── Bullet lists (chapter overview / bullet summaries) ─────────── */
+
+.chapter ul {
+  margin-left: 0.25in;
+  margin-bottom: 0.12in;
+}
+
+.chapter li {
+  font-family: 'Gidugu', sans-serif;
+  font-size: 10pt;
+  line-height: 1.65;
+  margin-bottom: 0.04in;
+}
+
+
+/* ── Horizontal rules ──────────────────────────────────────────── */
+
+.chapter hr {
+  border: none;
+  border-top: 0.5pt solid #ccc;
+  margin: 0.18in 0;
+}
