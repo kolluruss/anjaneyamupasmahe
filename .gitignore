@@ -4,6 +4,8 @@ __pycache__/
 pdfs/
 images/
 raw/
+.venv/
 .claude/
 publishing/gdrive_credentials.json
 publishing/gdrive_token.json
+venv/
